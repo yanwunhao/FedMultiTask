@@ -43,11 +43,8 @@ def read_data(train_data_dir, test_data_dir):
     train_x, train_labels, train_clients = read_dir(train_data_dir)
     test_x, test_labels, test_clients = read_dir(test_data_dir)
 
-    train_set = set(train_clients)
-    test_set = set(test_clients)
-
     return train_x, train_labels, train_clients, test_x, test_labels, test_clients
 
 
 if __name__ == "__main__":
-    read_data("./data/femnist/train", "./data/femnist/test")
+    read_dir("./data/femnist/train")
