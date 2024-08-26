@@ -1,6 +1,10 @@
 import random
 
 import torch
+from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt
+
+from util.dataset import FEMNIST
 
 RANDOM_SEED = 12345
 
@@ -19,3 +23,11 @@ if __name__ == "__main__":
     )
 
     print("Running on", device)
+
+    training_data = FEMNIST(train=True)
+    test_data = FEMNIST(train=False)
+
+    train_dataloader = DataLoader(training_data, batch_size=32, shuffle=True)
+    test_dataloader = DataLoader(test_data, batch_size=32, shuffle=False)
+
+    # training
